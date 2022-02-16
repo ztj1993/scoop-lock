@@ -22,6 +22,11 @@
         "    Move-Item \"$env:Appdata\\Composer\" \"$persist_dir\\home\" -Force",
         "}"
     ],
+    "post_install": [
+        "composer config --global repo.packagist composer https://mirrors.aliyun.com/composer",
+        "composer config --global secure-http false",
+        "composer self-update"
+    ],
     "bin": "composer.ps1",
     "env_add_path": "home\\vendor\\bin",
     "env_set": {
