@@ -15,8 +15,14 @@
             ]
         },
         "32bit": {
-            "url": "https://downloads.sourceforge.net/project/ldapadmin/ldapadmin/1.8.3/LdapAdminExe-w32-1.8.3.zip",
-            "hash": "sha1:89be0946bc572e34bb0df89cfe3164115544cd13"
+            "url": [
+                "https://downloads.sourceforge.net/project/ldapadmin/ldapadmin/1.8.3/LdapAdminExe-w32-1.8.3.zip",
+                "https://github.com/ztj1993/files/raw/master/soft/ldap-admin/ldap-admin-chinese-utf8-1.6.llf"
+            ],
+            "hash": [
+                "sha1:89be0946bc572e34bb0df89cfe3164115544cd13",
+                "C56F3ED5EA499467BA7E3F7440C3924478DA5D632328B1D695587B0D74110CEF"
+            ]
         }
     },
     "bin": "LdapAdmin.exe",
@@ -25,19 +31,5 @@
             "LdapAdmin.exe",
             "LDAP Admin"
         ]
-    ],
-    "checkver": {
-        "url": "https://sourceforge.net/projects/ldapadmin/files/ldapadmin/",
-        "regex": "LdapAdminExe-w32-([\\d.]+)\\.zip"
-    },
-    "autoupdate": {
-        "architecture": {
-            "64bit": {
-                "url": "https://downloads.sourceforge.net/project/ldapadmin/ldapadmin/$version/LdapAdminExe-w64-$version.zip"
-            },
-            "32bit": {
-                "url": "https://downloads.sourceforge.net/project/ldapadmin/ldapadmin/$version/LdapAdminExe-w32-$version.zip"
-            }
-        }
-    }
+    ]
 }
