@@ -1,0 +1,13 @@
+{
+    "version": "v20220707",
+    "description": "A cross-platform network tool designed for developers.",
+    "homepage": "https://github.com/txthinking/brook",
+    "url": "https://github.com/txthinking/brook/releases/download/v20220707/Brook.exe",
+    "bin": "Brook.exe",
+    "shortcuts": [
+        [
+            "Brook.exe",
+            "Brook"
+        ]
+    ]
+}
