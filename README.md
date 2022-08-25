@@ -16,3 +16,12 @@ scoop bucket add main https://github.com/ztj1993/scoop-lock.git
 ## 推荐社区清单
 - https://github.com/Ash258/Scoop-JetBrains
 - https://github.com/TheRandomLabs/scoop-nonportable
+
+## 清单文件指南
+
+### 变量说明
+```
+$dir           
+$bucketsdir      清单桶文件夹 \scoop\buckets
+$PSScriptRoot    
+```

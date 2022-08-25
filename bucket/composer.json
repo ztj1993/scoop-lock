@@ -1,5 +1,5 @@
 {
-    "version": "2.1.10",
+    "version": "2.4.1",
     "description": "Dependency Manager for PHP",
     "homepage": "https://getcomposer.org/",
     "license": "MIT",
@@ -10,12 +10,12 @@
             "php-nts"
         ]
     },
-    "url": "https://getcomposer.org/download/2.1.10/composer.phar",
-    "hash": "cb8b04cc6a6fb167403f7495e8539650eb555657aa48873f115383bcd8f0b18d",
+    "url": "https://getcomposer.org/download/2.4.1/composer.phar",
+    "hash": "ea8cf6308ec76ff9645c3818841a7588096b9dc2767345fbd4bd492dd8a6dca6",
     "pre_install": [
         "@(",
         "    'if ($args.length -eq 1 -and ($args -eq \"selfupdate\" -or $args -eq \"self-update\")) { & scoop update composer }'",
-        "    'else { & php (Join-Path $psscriptroot \"composer.phar\") @args }'",
+        "    'else { & php (Join-Path $PSScriptRoot \"composer.phar\") @args }'",
         ") | Add-Content -Path \"$dir\\composer.ps1\"",
         "if (!(Test-Path \"$persist_dir\\home\") -and (Test-Path \"$env:Appdata\\Composer\")) {",
         "    Write-Host -F yellow \"Moving old 'COMPOSER_HOME' to '$persist_dir\\home'\"",
