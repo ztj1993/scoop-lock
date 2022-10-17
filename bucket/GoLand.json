@@ -8,18 +8,18 @@
     },
     "changelog": "https://www.jetbrains.com/goland/whatsnew/",
     "url": [
-        "https://download.jetbrains.com/go/goland-2021.2.2.exe#/cosi.7z",
-        "https://raw.githubusercontent.com/Ash258/Scoop-JetBrains/main/scripts/portable.ps1"
+        "https://download.jetbrains.com/go/goland-2021.2.2.exe#/cosi.7z"
     ],
     "hash": [
-        "a87322ef771f9c9cbc198ecb4ec0fee1f6c16dd0a9b30cba26d82912f8ae06c4",
-        "2255673952a7909596b8783f6e913d2301f91f0def0275fcfbc6371b0ca021f8"
+        "a87322ef771f9c9cbc198ecb4ec0fee1f6c16dd0a9b30cba26d82912f8ae06c4"
     ],
     "extract_to": "IDE",
     "installer": {
         "script": [
-            "& \"$dir\\portable.ps1\" $dir $persist_dir",
-            "Remove-Item \"$dir\\IDE\\`$*\", \"$dir\\portable.ps1\" -Force -Recurse"
+            "$bucket_dir = Find-BucketDirectory -Root -Name $bucket",
+            "$script_bin = \"$bucket_dir\\scripts\\jetbrains\\portable.ps1\"",
+            "& \"$script_bin\" $dir $persist_dir",
+            "Remove-Item \"$dir\\IDE\\`$*\", \"$script_bin\" -Force -Recurse"
         ]
     },
     "architecture": {
