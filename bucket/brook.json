@@ -2,8 +2,17 @@
     "version": "v20220707",
     "description": "A cross-platform network tool designed for developers.",
     "homepage": "https://github.com/txthinking/brook",
-    "url": "https://github.com/txthinking/brook/releases/download/v20220707/Brook.exe",
-    "bin": "Brook.exe",
+    "url": [
+        "http://s001.ztj.xyz:8888/https://github.com/txthinking/brook/releases/download/v20230122/Brook.exe",
+        "http://s001.ztj.xyz:8888/https://github.com/txthinking/brook/releases/download/v20230122/brook_windows_amd64.exe"
+    ],
+    "bin": [
+        "Brook.exe",
+        [
+            "brook_windows_amd64.exe",
+            "brook-cli"
+        ]
+    ],
     "shortcuts": [
         [
             "Brook.exe",
