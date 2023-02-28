@@ -1,0 +1,26 @@
+{
+  "version": "1.9.5",
+  "description": "Alibaba cloud (Aliyun) oss file manager.",
+  "homepage": "https://github.com/aliyun/oss-browser",
+  "license": "Apache-2.0",
+  "architecture": {
+    "64bit": {
+      "url": "https://kodo-toolbox.qiniu.com/kodo-browser-Windows-x64-v1.0.19.2.zip"
+    },
+    "32bit": {
+      "url": "https://kodo-toolbox.qiniu.com/kodo-browser-Windows-x86-v1.0.19.2.zip"
+    }
+  },
+  "bin": [
+    [
+      "Kodo Browser.exe",
+      "kodo-browser"
+    ]
+  ],
+  "shortcuts": [
+    [
+      "Kodo Browser.exe",
+      "OSS Browser"
+    ]
+  ]
+}
