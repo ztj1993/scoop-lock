@@ -1,10 +1,10 @@
 {
-  "version": "2.4.1",
+  "version": "2.5.0",
   "homepage": "https://github.com/xjasonlyu/tun2socks",
   "architecture": {
     "64bit": {
       "url": [
-        "https://github.com/xjasonlyu/tun2socks/releases/download/v2.4.1/tun2socks-windows-amd64.zip",
+        "https://github.com/xjasonlyu/tun2socks/releases/download/v2.5.0/tun2socks-windows-amd64.zip",
         "https://www.wintun.net/builds/wintun-0.14.1.zip"
       ],
       "extract_dir": [
