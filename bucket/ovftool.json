@@ -1,7 +1,7 @@
 {
-  "version": "4.4.3",
-  "homepage": "https://developer.vmware.com/tools",
-  "url": "https://vdc-download.vmware.com/vmwb-repository/dcr-public/06b5edbc-ce6d-4aaf-9f4b-359bf0c45933/8420bd5a-0def-4461-83e2-2c300c37ef31/VMware-ovftool-4.4.3-18663434-win.x86_64.zip",
+  "version": "4.6.2",
+  "homepage": "https://developer.vmware.com/web/tool/4.6.2/ovf-tool",
+  "url": "https://vdc-download.vmware.com/vmwb-repository/dcr-public/16ff35c0-5367-4472-ad66-89ce7f71410a/344d051f-cf3e-47c8-8222-72fd3341c772/VMware-ovftool-4.6.2-22220919-win.x86_64.zip",
   "extract_dir": "ovftool",
   "bin": [
     [

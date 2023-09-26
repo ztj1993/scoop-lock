@@ -1,14 +1,14 @@
 {
-  "version": "1.9.5",
-  "description": "Alibaba cloud (Aliyun) oss file manager.",
-  "homepage": "https://github.com/aliyun/oss-browser",
+  "version": "2.0.1",
+  "description": "Kodo Browser 是七牛对象存储提供的图形化管理工具。",
+  "homepage": "https://github.com/qiniu/kodo-browser",
   "license": "Apache-2.0",
   "architecture": {
     "64bit": {
-      "url": "https://kodo-toolbox.qiniu.com/kodo-browser-Windows-x64-v1.0.19.2.zip"
+      "url": "https://kodo-toolbox-new.qiniu.com/kodobrowser/client/kodo-browser-Windows-x64-v2.0.1.zip"
     },
     "32bit": {
-      "url": "https://kodo-toolbox.qiniu.com/kodo-browser-Windows-x86-v1.0.19.2.zip"
+      "url": "https://kodo-toolbox-new.qiniu.com/kodobrowser/client/kodo-browser-Windows-x86-v2.0.1.zip"
     }
   },
   "bin": [
@@ -20,7 +20,7 @@
   "shortcuts": [
     [
       "Kodo Browser.exe",
-      "OSS Browser"
+      "Kodo Browser"
     ]
   ]
 }

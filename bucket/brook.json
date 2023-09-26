@@ -10,7 +10,7 @@
         "Brook.exe",
         [
             "brook_windows_amd64.exe",
-            "brook-cli"
+            "brook"
         ]
     ],
     "shortcuts": [
