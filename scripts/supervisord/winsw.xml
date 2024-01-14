@@ -1,0 +1,9 @@
+<service>
+  <id>supervisord</id>
+  <name>supervisord</name>
+  <description>supervisord</description>
+  <executable>%BASE%\supervisord.exe</executable>
+  <arguments>--configuration=%BASE%\supervisord.conf</arguments>
+  <workingdirectory>%BASE%</workingdirectory>
+  <priority>High</priority>
+</service>

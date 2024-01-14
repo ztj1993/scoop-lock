@@ -6,7 +6,7 @@
     "suggest": {
         "JDK": "java/openjdk"
     },
-    "url": "http://s001.ztj.xyz:8888/https://services.gradle.org/distributions/gradle-8.4-all.zip",
+    "url": "https://services.gradle.org/distributions/gradle-8.4-all.zip",
     "hash": "f2b9ed0faf8472cbe469255ae6c86eddb77076c75191741b4a462f33128dd419",
     "extract_dir": "gradle-8.4",
     "post_install": [
