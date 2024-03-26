@@ -1,0 +1,66 @@
+{
+    "version": "2021.2.2-212.5284.40",
+    "description": "IntelliJ IDEA Ultimate. Cross-Platform Java IDE for professional developers by JetBrains.",
+    "homepage": "https://www.jetbrains.com/idea/",
+    "license": {
+        "identifier": "Proprietary",
+        "url": "https://www.jetbrains.com/store/license.html"
+    },
+    "changelog": "https://www.jetbrains.com/idea/whatsnew/",
+    "url": [
+        "https://download.jetbrains.com/idea/ideaIU-2021.2.2.win.zip"
+    ],
+    "hash": [
+        "64de729f5a38cae2e1d75f7652a6d07d30ddf01690076cfc2ea6f8faf0d829c0"
+    ],
+    "extract_to": "IDE",
+    "installer": {
+        "script": [
+            "$bucket_dir = Find-BucketDirectory -Root -Name $bucket",
+            "$script_bin = \"$bucket_dir\\scripts\\jetbrains\\portable.ps1\"",
+            "& \"$script_bin\" $dir $persist_dir",
+            "Remove-Item \"$dir\\IDE\\`$*\", \"$script_bin\" -Force -Recurse"
+        ]
+    },
+    "architecture": {
+        "64bit": {
+            "bin": [
+                "IDE\\bin\\idea64.exe",
+                [
+                    "IDE\\bin\\idea64.exe",
+                    "idea"
+                ]
+            ],
+            "shortcuts": [
+                [
+                    "IDE\\bin\\idea64.exe",
+                    "JetBrains\\IntelliJ IDEA Ultimate"
+                ]
+            ]
+        },
+        "32bit": {
+            "bin": "IDE\\bin\\idea.exe",
+            "shortcuts": [
+                [
+                    "IDE\\bin\\idea.exe",
+                    "JetBrains\\IntelliJ IDEA Ultimate"
+                ]
+            ]
+        }
+    },
+    "persist": [
+        "IDE\\bin\\idea.properties",
+        "profile"
+    ],
+    "checkver": {
+        "url": "https://data.services.jetbrains.com/products/releases?code=IIU&latest=true&platform=zip&type=release",
+        "regex": "version\":\"(?<ver>[\\d.]+)\".*\"build\":\"(?<build>[\\d.]+)\"",
+        "replace": "${ver}-${build}"
+    },
+    "autoupdate": {
+        "url": "https://download.jetbrains.com/idea/ideaIU-$matchHead.win.zip",
+        "hash": {
+            "url": "$url.sha256"
+        }
+    }
+}
