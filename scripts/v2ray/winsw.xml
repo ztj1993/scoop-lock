@@ -1,0 +1,8 @@
+<service>
+  <id>v2ray</id>
+  <name>v2ray</name>
+  <executable>v2ray.exe</executable>
+  <arguments> run -d .\config\</arguments>
+  <workingdirectory>%BASE%</workingdirectory>
+  <priority>High</priority>
+</service>
