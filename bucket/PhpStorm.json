@@ -18,8 +18,7 @@
         "script": [
             "$bucket_dir = Find-BucketDirectory -Root -Name $bucket",
             "$script_bin = \"$bucket_dir\\scripts\\jetbrains\\portable.ps1\"",
-            "& \"$script_bin\" $dir $persist_dir",
-            "Remove-Item \"$dir\\IDE\\`$*\", \"$script_bin\" -Force -Recurse"
+            "& \"$script_bin\" $dir $persist_dir"
         ]
     },
     "architecture": {
