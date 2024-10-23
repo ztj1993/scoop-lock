@@ -1,7 +1,9 @@
 {
+    "version": "2.7.18",
     "homepage": "https://www.python.org/",
     "license": "Python-2.0",
-    "version": "2.7.18",
+    "description": "A programming language that lets you work quickly and integrate systems more effectively.",
+    "notes": "Python 2 is EOL. Upgrade to Python 3 by running: scoop install python",
     "architecture": {
         "64bit": {
             "url": "https://www.python.org/ftp/python/2.7.18/python-2.7.18.amd64.msi",
@@ -13,8 +15,6 @@
         }
     },
     "bin": [
-        "python.exe",
-        "pythonw.exe",
         [
             "python.exe",
             "python2"
@@ -25,7 +25,10 @@
             "idle2"
         ]
     ],
-    "env_add_path": "scripts",
+    "env_add_path": [
+        "Scripts",
+        "."
+    ],
     "post_install": [
         "python2 -m ensurepip",
         "",
@@ -46,7 +49,7 @@
     ],
     "checkver": {
         "url": "https://www.python.org/downloads/windows/",
-        "re": "Python (2\\.7\\.[\\d.]+)"
+        "regex": "Python (2\\.7\\.[\\d.]+)"
     },
     "autoupdate": {
         "architecture": {

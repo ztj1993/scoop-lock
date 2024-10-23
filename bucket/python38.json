@@ -1,5 +1,5 @@
 {
-    "version": "3.7.9",
+    "version": "3.8.10",
     "description": "A programming language that lets you work quickly and integrate systems more effectively.",
     "homepage": "https://www.python.org/",
     "license": "Python-2.0",
@@ -7,18 +7,18 @@
     "architecture": {
         "64bit": {
             "url": [
-                "https://www.python.org/ftp/python/3.7.9/python-3.7.9-amd64.exe#/setup.exe"
+                "https://www.python.org/ftp/python/3.8.10/python-3.8.10-amd64.exe#/setup.exe"
             ],
             "hash": [
-                "md5:7083fed513c3c9a4ea655211df9ade27"
+                "md5:62cf1a12a5276b0259e8761d4cf4fe42"
             ]
         },
         "32bit": {
             "url": [
-                "https://www.python.org/ftp/python/3.7.9/python-3.7.9.exe#/setup.exe"
+                "https://www.python.org/ftp/python/3.8.10/python-3.8.10.exe#/setup.exe"
             ],
             "hash": [
-                "md5:1e6d31c98c68c723541f0821b3c15d52"
+                "md5:b355cfc84b681ace8908ae50908e8761"
             ]
         }
     },
@@ -74,7 +74,7 @@
         ],
         [
             "python.exe",
-            "python37"
+            "python38"
         ],
         "Lib\\idlelib\\idle.bat",
         [
@@ -83,7 +83,7 @@
         ],
         [
             "Lib\\idlelib\\idle.bat",
-            "idle37"
+            "idle38"
         ]
     ],
     "env_add_path": [
@@ -96,7 +96,7 @@
     ],
     "checkver": {
         "url": "https://www.python.org/downloads/windows/",
-        "regex": "python-(3\\.7\\.[\\d.]+)-"
+        "regex": "python-(3\\.8\\.[\\d.]+)-"
     },
     "autoupdate": {
         "architecture": {
