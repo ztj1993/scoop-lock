@@ -1,10 +1,10 @@
 {
-    "version": "v20230601",
+    "version": "v20240606",
     "description": "A cross-platform network tool designed for developers.",
     "homepage": "https://github.com/txthinking/brook",
     "url": [
-        "https://github.com/txthinking/brook/releases/download/v20230601/Brook.exe",
-        "https://github.com/txthinking/brook/releases/download/v20230601/brook_windows_amd64.exe"
+        "https://github.com/txthinking/brook/releases/download/v20240606/Brook.exe",
+        "https://github.com/txthinking/brook/releases/download/v20240606/brook_windows_amd64.exe"
     ],
     "bin": [
         "Brook.exe",
