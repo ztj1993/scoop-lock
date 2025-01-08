@@ -1,0 +1,28 @@
+{
+    "version": "8.0.3",
+    "description": "Test the NAT type (STUN) of the current network",
+    "homepage": "https://github.com/HMBSbige/NatTypeTester",
+    "license": "MIT",
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/HMBSbige/NatTypeTester/releases/download/8.0.3/NatTypeTester-8.0.3-x64.7z",
+            "extract_dir": "NatTypeTester.WinUI.x64",
+            "shortcuts": [
+                [
+                    "NatTypeTester.exe",
+                    "NatTypeTester"
+                ]
+            ]
+        },
+        "32bit": {
+            "url": "https://github.com/HMBSbige/NatTypeTester/releases/download/8.0.3/NatTypeTester-8.0.3.7z",
+            "extract_dir": "NatTypeTester",
+            "shortcuts": [
+                [
+                    "NatTypeTester-x86.exe",
+                    "NatTypeTester"
+                ]
+            ]
+        }
+    }
+}
