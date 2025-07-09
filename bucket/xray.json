@@ -14,21 +14,11 @@
         }
     },
     "pre_install": [
-        "if (!(Test-Path \"$persist_dir\\config.json\")) {",
-        "    Set-Content \"$dir\\config.json\" '{}' -Encoding 'Ascii'",
-        "}"
+        "sudo New-Service -Name XRay -Binary \"$dir\\xray.exe run -confdir $dir\\config\" -StartupType Automatic\n"
+    ],
+    "post_install": [
+        "Remove-Service -Name XRay"
     ],
     "bin": "xray.exe",
-    "persist": "config.json",
-    "checkver": "github",
-    "autoupdate": {
-        "architecture": {
-            "64bit": {
-                "url": "https://github.com/XTLS/Xray-core/releases/download/v$version/Xray-windows-64.zip"
-            },
-            "32bit": {
-                "url": "https://github.com/XTLS/Xray-core/releases/download/v$version/Xray-windows-32.zip"
-            }
-        }
-    }
+    "persist": "config"
 }
