@@ -1,23 +1,26 @@
 {
-    "version": "23.00",
+    "version": "26.00",
     "description": "A multi-format file archiver with high compression ratios",
     "homepage": "https://www.7-zip.org/",
     "license": "LGPL-2.1-or-later",
-    "notes": "Add 7-Zip as a context menu option by running: \"$dir\\install-context.reg\"",
+    "notes": [
+        "Add 7-Zip as a context menu option by running:",
+        "reg import \"$dir\\install-context.reg\""
+    ],
     "architecture": {
         "64bit": {
-            "url": "https://www.7-zip.org/a/7z2300-x64.msi",
-            "hash": "4dc4f14ffef0691108dd93bd032248ac47dc5cc7f444699d6bb8721c1a77cd0b",
+            "url": "https://www.7-zip.org/a/7z2600-x64.msi",
+            "hash": "c388d0444871ca11b21237001af158cfddad7e137851795e5b65cee69b518495",
             "extract_dir": "Files\\7-Zip"
         },
         "32bit": {
-            "url": "https://www.7-zip.org/a/7z2300.msi",
-            "hash": "98d68c5a30f06b2181a876d5a5800b35976f604f2d6f6f1fcaf243011d987163",
+            "url": "https://www.7-zip.org/a/7z2600.msi",
+            "hash": "53b4f99a2471678020a326fd1d5c888616f5d6c84b00d5db7da30357755c74c3",
             "extract_dir": "Files\\7-Zip"
         },
         "arm64": {
-            "url": "https://www.7-zip.org/a/7z2300-arm64.exe",
-            "hash": "5a498b6f3804e8cd04f3442efe614a9a5614d384e4ee6ca9f02924ad4223b5fa",
+            "url": "https://www.7-zip.org/a/7z2600-arm64.exe",
+            "hash": "92fac666911336f3bbf3d99fdc48ec36fe20ac7a4200556936e61a8076ae6493",
             "pre_install": [
                 "$7zr = Join-Path $env:TMP '7zr.exe'",
                 "Invoke-WebRequest https://www.7-zip.org/a/7zr.exe -OutFile $7zr",
@@ -55,7 +58,7 @@
     ],
     "checkver": {
         "url": "https://www.7-zip.org/download.html",
-        "regex": "Download 7-Zip ([\\d.]+)"
+        "regex": "Download 7-Zip ([\\d.]+) \\(\\d{4}-\\d{2}-\\d{2}\\)"
     },
     "autoupdate": {
         "architecture": {
