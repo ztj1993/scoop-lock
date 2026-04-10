@@ -1,0 +1,27 @@
+{
+    "version": "stable",
+    "description": "Xpra is a persistent remote display server and client for forwarding applications and desktop screens",
+    "homepage": "https://xpra.org/",
+    "license": "GPL-2.0-or-later",
+    "architecture": {
+        "64bit": {
+            "url": "https://xpra.org/stable/windows/Xpra.zip"
+        }
+    },
+    "pre_install": [
+        "$src = Get-ChildItem -Path \"$dir\" -Directory | Where-Object { $_.Name -like 'Xpra*' } | Select-Object -First 1",
+        "if ($src -and $src.Name -ne 'Xpra') {",
+        "    Rename-Item -Path $src.FullName -NewName \"$dir\\Xpra\" -Force",
+        "}"
+    ],
+    "bin": [
+        "Xpra\\Xpra_cmd.exe",
+        "Xpra\\Xpra.exe"
+    ],
+    "shortcuts": [
+        [
+            "Xpra\\Xpra.exe",
+            "Xpra"
+        ]
+    ]
+}
