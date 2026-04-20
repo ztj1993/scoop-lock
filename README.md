@@ -26,6 +26,58 @@ $bucketsdir      清单桶文件夹 \scoop\buckets
 $PSScriptRoot    
 ```
 
+### Python 快速安装
+```
+# 安装管理工具 uv
+scoop install uv
+
+# 安装 Python 3.8
+uv python install 3.8
+
+# 安装 Python 3.13
+uv python install 3.13
+
+# 检查 python 3.8 和 3.13 安装
+python3.8 --version
+python3.13 --version
+```
+
+### GoLang 快速安装
+```
+# 安装管理工具 g
+scoop install g
+
+# 安装 Go 1.18
+g install 1.18
+
+# 检查 go 1.18 安装
+go version
+
+# 安装 Go 1.23
+g install 1.23
+
+# 检查 go 1.23 安装
+go version
+
+# 切换 Go 1.18
+g use 1.18
+
+# 检查 go 版本
+go version
+```
+
+### Node.js 快速安装
+```
+# 安装管理工具 nvm
+scoop install nvm
+
+# 安装最新版本 Node.js
+nvm install --lts
+
+# 检查 node.js 版本
+node --version
+```
+
 ## 本仓库软件清单
 
 ### 开发工具
