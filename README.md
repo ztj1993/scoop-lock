@@ -1,9 +1,41 @@
-# scoop
+# scoop-lock
 我个人使用的软件版本锁定，同时针对 China 的一些参数配置。
 
 ## 使用
+
+### 部署 Bucket
 ```
 scoop bucket add main https://github.com/ztj1993/scoop-lock.git
+```
+
+### 如果没有 Scoop
+```powershell
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+irm https://raw.githubusercontent.com/ztj1993/scoop-lock/master/install.ps1 | iex
+```
+
+### 如果要强制重新安装
+```powershell
+$env:FORCE_SCOOP = 1
+$env:FORCE_MAIN_BUCKET = 1
+irm https://raw.githubusercontent.com/ztj1993/scoop-lock/master/install.ps1 | iex
+```
+
+### 安装脚本支持的环境变量
+
+| 变量 | 说明 | 默认值 |
+|------|------|--------|
+| `SCOOP_PACKAGE_REPO` | scoop 下载地址 | `https://ghfast.top/https://github.com/ScoopInstaller/Scoop/archive/master.zip` |
+| `SCOOP_APP_DIR` | scoop 安装目录 | `$env:USERPROFILE\scoop\apps\scoop\current` |
+| `SCOOP_MAIN_BUCKET_REPO` | 主 bucket 下载地址 | `https://ghfast.top/https://github.com/ztj1993/scoop-lock/archive/master.zip` |
+| `SCOOP_MAIN_BUCKET_DIR` | 主 bucket 目录 | `$env:USERPROFILE\scoop\buckets\main` |
+| `FORCE_SCOOP` | 强制重新安装 scoop | 空（不强制） |
+| `FORCE_MAIN_BUCKET` | 强制重新安装主 bucket | 空（不强制） |
+
+```powershell
+# 使用环境变量自定义
+$env:SCOOP_PACKAGE_REPO = "https://github.com/ScoopInstaller/Scoop/archive/master.zip"
+irm https://raw.githubusercontent.com/ztj1993/scoop-lock/master/install.ps1 | iex
 ```
 
 ## 官方软件清单
