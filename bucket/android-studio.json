@@ -1,18 +1,18 @@
 {
-    "version": "2022.3.1.21",
+    "version": "2025.3.4.7",
     "description": "The official IDE for Android development, which includes everything you need to build Android apps.",
-    "homepage": "https://developer.android.com/studio/",
+    "homepage": "https://developer.android.com/studio",
     "license": {
         "identifier": "Freeware",
-        "url": "https://developer.android.com/studio/terms.html"
+        "url": "https://developer.android.com/studio/terms"
     },
     "suggest": {
         "Android SDK": "android-clt"
     },
     "architecture": {
         "64bit": {
-            "url": "https://redirector.gvt1.com/edgedl/android/studio/ide-zips/2022.3.1.21/android-studio-2022.3.1.21-windows.zip",
-            "hash": "2f42dc50bf2a81d3c8770636bab5cdbdd4f10fb74987ec47b6aab03ba94155b5",
+            "url": "https://edgedl.me.gvt1.com/android/studio/ide-zips/2025.3.4.7/android-studio-panda4-patch1-windows.zip",
+            "hash": "b37f2f33619c932f50d59f30592ea4f6ddd8d9fd95e3b3687c5525429316b28f",
             "shortcuts": [
                 [
                     "bin\\studio64.exe",
@@ -22,12 +22,15 @@
         }
     },
     "extract_dir": "android-studio",
-    "persist": "plugins",
-    "checkver": "android-studio-([\\d.]+)-windows\\.zip",
+    "checkver": "/ide-zips/(?<version>[\\d.]+)/(?<filename>android-studio.*windows\\.zip)",
     "autoupdate": {
         "architecture": {
             "64bit": {
-                "url": "https://redirector.gvt1.com/edgedl/android/studio/ide-zips/$version/android-studio-$version-windows.zip"
+                "url": "https://edgedl.me.gvt1.com/android/studio/ide-zips/$version/$matchFilename",
+                "hash": {
+                    "url": "https://developer.android.com/studio",
+                    "regex": "(?sm)$basename.*?$sha256"
+                }
             }
         }
     }

@@ -1,30 +1,29 @@
 {
-    "version": "2021.2.2-212.5284.41",
-    "description": "WebStorm. Cross-Platform, Smart JavaScript IDE by JetBrains.",
+    "version": "2026.1.2-261.24374.125",
+    "description": "Cross-Platform IDE for JavaScript by JetBrains.",
     "homepage": "https://www.jetbrains.com/webstorm/",
     "license": {
         "identifier": "Proprietary",
         "url": "https://www.jetbrains.com/store/license.html"
     },
-    "changelog": "https://www.jetbrains.com/webstorm/whatsnew/",
-    "url": [
-        "https://download.jetbrains.com/webstorm/WebStorm-2021.2.2.exe#/cosi.7z"
-    ],
-    "hash": [
-        "4798e7c1bbbbcc7bbbfceeedff52ac39d7262a255b943edd3c3575cbe32d3191"
-    ],
+    "url": "https://download.jetbrains.com/webstorm/WebStorm-2026.1.2.win.zip",
+    "hash": "e128a91da319a926bad42f65882558a0b0935bf73b33ddd2380016104ce3f13d",
     "extract_to": "IDE",
+    "pre_install": [
+        "Get-ChildItem \"$persist_dir\\IDE\\bin\\webstorm*.exe.vmoptions\" -ErrorAction SilentlyContinue | Copy-Item -Destination \"$dir\\IDE\\bin\"",
+        "Get-ChildItem \"$persist_dir\\IDE\\bin\\jetbrains_client64.exe.vmoptions\" -ErrorAction SilentlyContinue | Copy-Item -Destination \"$dir\\IDE\\bin\""
+    ],
     "installer": {
         "script": [
             "$bucket_dir = Find-BucketDirectory -Root -Name $bucket",
             "$script_bin = \"$bucket_dir\\scripts\\jetbrains\\portable.ps1\"",
-            "& \"$script_bin\" $dir $persist_dir"
+            "& \"$script_bin\" \"$dir\" \"$persist_dir\"",
+            "Remove-Item \"$dir\\IDE\\`$*\" -Force -Recurse"
         ]
     },
     "architecture": {
         "64bit": {
             "bin": [
-                "IDE\\bin\\webstorm64.exe",
                 [
                     "IDE\\bin\\webstorm64.exe",
                     "webstorm"
@@ -51,13 +50,17 @@
         "IDE\\bin\\idea.properties",
         "profile"
     ],
+    "pre_uninstall": [
+        "Get-ChildItem \"$dir\\IDE\\bin\\webstorm*.exe.vmoptions\" -ErrorAction SilentlyContinue | Copy-Item -Destination \"$persist_dir\\IDE\\bin\"",
+        "Get-ChildItem \"$dir\\IDE\\bin\\jetbrains_client64.exe.vmoptions\" -ErrorAction SilentlyContinue | Copy-Item -Destination \"$persist_dir\\IDE\\bin\""
+    ],
     "checkver": {
         "url": "https://data.services.jetbrains.com/products/releases?code=WS&latest=true&platform=zip&type=release",
         "regex": "version\":\"(?<ver>[\\d.]+)\".*\"build\":\"(?<build>[\\d.]+)\"",
         "replace": "${ver}-${build}"
     },
     "autoupdate": {
-        "url": "https://download.jetbrains.com/webstorm/WebStorm-$matchHead.exe#/cosi.7z",
+        "url": "https://download.jetbrains.com/webstorm/WebStorm-$matchVer.win.zip",
         "hash": {
             "url": "$url.sha256"
         }

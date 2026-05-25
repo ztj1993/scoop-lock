@@ -1,16 +1,16 @@
 {
-    "version": "23.1",
+    "version": "35.0",
     "description": "Protocol compiler used to compile .proto files.",
-    "homepage": "https://github.com/google/protobuf",
+    "homepage": "https://github.com/protocolbuffers/protobuf",
     "license": "BSD-3-Clause",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/google/protobuf/releases/download/v23.1/protoc-23.1-win64.zip",
-            "hash": "420cd7a1548a9c3ef5b5a7e969b6fcf8ee6a5a09cec99d7a3209406f028e5dce"
+            "url": "https://github.com/protocolbuffers/protobuf/releases/download/v35.0/protoc-35.0-win64.zip",
+            "hash": "d1cede9e308cc3eb072392af1c02ccae4bdd3d2f374ec2970dbd8cdfdaa91363"
         },
         "32bit": {
-            "url": "https://github.com/google/protobuf/releases/download/v23.1/protoc-23.1-win32.zip",
-            "hash": "6a321495cff9880ddb61bb49f2169b39463bfb770c3cfc3a6b923c29f0fe3ca3"
+            "url": "https://github.com/protocolbuffers/protobuf/releases/download/v35.0/protoc-35.0-win32.zip",
+            "hash": "99ff33772ca055cd096782d05395bbcc4b6187cce284d2a914fc3745d3ecb6b6"
         }
     },
     "bin": "bin\\protoc.exe",
@@ -18,10 +18,10 @@
     "autoupdate": {
         "architecture": {
             "64bit": {
-                "url": "https://github.com/google/protobuf/releases/download/v$version/protoc-$version-win64.zip"
+                "url": "https://github.com/protocolbuffers/protobuf/releases/download/v$version/protoc-$version-win64.zip"
             },
             "32bit": {
-                "url": "https://github.com/google/protobuf/releases/download/v$version/protoc-$version-win32.zip"
+                "url": "https://github.com/protocolbuffers/protobuf/releases/download/v$version/protoc-$version-win32.zip"
             }
         }
     }
