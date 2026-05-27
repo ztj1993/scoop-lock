@@ -55,4 +55,5 @@ irm https://raw.githubusercontent.com/ztj1993/scoop-lock/master/install.ps1 | ie
 - [软件使用指南](docs/guides/) - bucket 和 archive 目录下软件的常用使用方法
 - [参考 Bucket](docs/reference-buckets.md) - 官方和社区 bucket 参考
 - [Manifest 编写提示](docs/manifest-tips.md) - Scoop manifest 编写常用变量参考
+- [加速前缀脚本](docs/cn-proxy.md) - 修改软件下载 URL 和 git 远端地址添加加速前缀
 
