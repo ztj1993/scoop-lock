@@ -1,0 +1,29 @@
+{
+    "version": "1.0.9",
+    "description": "A modern remote terminal workspace built with Tauri, React, and Rust",
+    "homepage": "https://nyaterm.app/",
+    "license": "MIT",
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/nyakang/nyaterm/releases/download/v1.0.9/NyaTerm_1.0.9_windows_x64_portable.zip"
+        }
+    },
+    "extract_dir": "NyaTerm-portable",
+    "shortcuts": [
+        [
+            "NyaTerm.exe",
+            "NyaTerm"
+        ]
+    ],
+    "persist": "data",
+    "checkver": {
+        "github": "https://github.com/nyakang/nyaterm"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/nyakang/nyaterm/releases/download/v$version/NyaTerm_$version_windows_x64_portable.zip"
+            }
+        }
+    }
+}

@@ -45,7 +45,9 @@
 
 | 软件 | 描述 |
 | --- | --- |
+| nyaterm | 使用 Tauri、React 和 Rust 构建的现代化远程终端工作区 |
 | putty | SSH 和 Telnet 客户端 |
+| rttys | rtty 远程终端系统的服务器端组件 |
 | winscp | 支持 FTP、FTPS、SCP、SFTP、WebDAV、S3 的文件传输工具 |
 | windterm | SSH / SFTP / Shell / Telnet / Serial 客户端 |
 
