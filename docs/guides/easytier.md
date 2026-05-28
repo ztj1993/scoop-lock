@@ -7,8 +7,8 @@ EasyTier CLI 是一个简单、去中心化的 Mesh VPN 解决方案的命令行
 **版本**: 2.6.4
 **官网**: https://github.com/EasyTier/EasyTier
 **许可证**: LGPL-3.0
-**类型**: 命令行工具
-**可执行文件**: easytier-cli.exe, easytier-core.exe
+**类型**: 命令行工具 + Web 控制台
+**可执行文件**: easytier-cli.exe, easytier-core.exe, easytier-web.exe, easytier-web-embed.exe
 **传输协议**: TCP/UDP
 
 ## 主要功能
@@ -21,6 +21,7 @@ EasyTier CLI 是一个简单、去中心化的 Mesh VPN 解决方案的命令行
 - 端到端加密
 - 跨平台兼容
 - 命令行管理界面
+- Web 控制台管理界面
 - 自动节点发现
 - 虚拟 IP 地址分配
 - 网络拓扑可视化
@@ -47,8 +48,10 @@ easytier-cli.exe --version
 ### 组件说明
 
 ```
-easytier-core.exe   核心服务组件，负责 VPN 隧道建立和数据传输
-easytier-cli.exe    命令行管理工具，用于配置和监控
+easytier-core.exe         核心服务组件，负责 VPN 隧道建立和数据传输
+easytier-cli.exe          命令行管理工具，用于配置和监控
+easytier-web.exe          Web API 后端服务（仅后端）
+easytier-web-embed.exe    Web 前端 + Web API 后端（完整版）
 ```
 
 ## 基本用法
@@ -379,6 +382,233 @@ easytier-core.exe --config /path/to/config.toml
 
 # 验证配置文件
 easytier-core.exe --config /path/to/config.toml --check
+```
+
+## Web 控制台
+
+EasyTier 支持使用 Web 控制台来管理节点，包括查看节点状态、配置节点参数、查看节点日志等。
+
+### Web 控制台版本
+
+EasyTier 提供两个版本的 Web 控制台：
+
+```
+easytier-web.exe          仅 Web API 后端
+easytier-web-embed.exe    Web 前端 + Web API 后端（完整版）
+```
+
+### 架构说明
+
+Web 控制台采用前后端分离的架构，包含 3 个服务：
+
+```
+Web 前端（默认 11211 端口）
+Web API 后端（默认 11211 端口）
+配置下发端（默认 22020 端口，UDP 协议）
+```
+
+其中，Web 前端与 Web API 后端默认绑定在同一端口，配置下发端则是 Web API 后端的一部分。
+
+### 启动 Web 控制台
+
+#### 使用 easytier-web-embed（推荐）
+
+```bash
+# 启动完整版 Web 控制台
+easytier-web-embed.exe \
+  --api-server-port 11211 \
+  --api-host "http://127.0.0.1:11211" \
+  --config-server-port 22020 \
+  --config-server-protocol udp
+```
+
+#### 使用 easytier-web
+
+```bash
+# 仅启动 Web API 后端
+easytier-web.exe \
+  --api-server-port 11211 \
+  --config-server-port 22020 \
+  --config-server-protocol udp
+```
+
+### Web 控制台参数
+
+```
+--api-server-port         Web 前后端的端口（默认 11211）
+--api-host                Web API 后端的访问地址
+--config-server-port      配置下发端的端口（默认 22020）
+--config-server-protocol  配置下发端的协议（支持 tcp, udp, ws）
+--web-server-port         额外监听 Web 前端的端口
+--no-web                  不运行 Web 前端
+```
+
+### 访问 Web 控制台
+
+启动成功后，打开浏览器访问：
+
+```
+http://127.0.0.1:11211
+```
+
+### 注册和登录
+
+Web 控制台提供两个默认账户：
+
+```
+用户名: admin
+密码: admin
+
+用户名: user
+密码: user
+```
+
+点击 `Register` 可以注册新账户。如果刷新不出验证码，说明 `--api-host` 设置有误。
+
+### 接入自建 Web 控制台
+
+在 Web 控制台上创建网络后，使用 `easytier-core` 接入：
+
+```bash
+# 接入自建 Web 控制台
+# protocol: udp, tcp, ws, wss
+easytier-core.exe -w udp://127.0.0.1:22020/<用户名>
+
+# 示例
+easytier-core.exe -w udp://127.0.0.1:22020/admin
+```
+
+### 配置下发协议
+
+支持以下协议：
+
+```
+udp    UDP 协议（默认）
+tcp    TCP 协议
+ws     WebSocket 协议
+wss    WebSocket Secure 协议（需要反向代理）
+```
+
+### 反向代理配置
+
+当使用反向代理将 ws 升级为 wss 时，连接时可填写 `wss` 协议：
+
+```bash
+# 使用 wss 协议连接
+easytier-core.exe -w wss://your-domain.com/22020/admin
+```
+
+### Web 控制台功能
+
+Web 控制台提供以下功能：
+
+```
+节点管理    查看和管理所有节点
+网络配置    创建和配置网络
+状态监控    实时查看节点状态
+日志查看    查看节点日志
+配置下发    向节点推送配置
+用户管理    管理用户账户
+```
+
+### Web 控制台使用示例
+
+#### 1. 启动 Web 控制台
+
+```bash
+easytier-web-embed.exe \
+  --api-server-port 11211 \
+  --api-host "http://127.0.0.1:11211" \
+  --config-server-port 22020 \
+  --config-server-protocol udp
+```
+
+#### 2. 访问 Web 控制台
+
+打开浏览器访问 `http://127.0.0.1:11211`，使用默认账户登录。
+
+#### 3. 创建网络
+
+在 Web 控制台中创建网络，配置网络名称和密码。
+
+#### 4. 接入网络
+
+在其他设备上使用 `easytier-core` 接入网络：
+
+```bash
+easytier-core.exe -w udp://服务器IP:22020/admin
+```
+
+#### 5. 管理节点
+
+在 Web 控制台中查看和管理所有接入的节点。
+
+### Web 控制台配置文件
+
+Web 控制台支持使用配置文件：
+
+```toml
+# web-config.toml
+[api]
+port = 11211
+host = "http://127.0.0.1:11211"
+
+[config_server]
+port = 22020
+protocol = "udp"
+
+[web]
+enabled = true
+port = 11211
+```
+
+```bash
+# 使用配置文件启动
+easytier-web-embed.exe --config web-config.toml
+```
+
+### Web 控制台故障排除
+
+#### 1. 无法访问 Web 控制台
+
+```
+可能原因:
+- 端口被占用
+- 防火墙阻止
+- 配置错误
+
+解决方法:
+1. 检查端口是否被占用
+2. 检查防火墙设置
+3. 验证配置参数
+4. 查看日志输出
+```
+
+#### 2. 注册时无法获取验证码
+
+```
+可能原因:
+- --api-host 配置错误
+- 网络连接问题
+
+解决方法:
+1. 检查 --api-host 参数
+2. 确保网络连接正常
+3. 查看浏览器控制台错误
+```
+
+#### 3. 节点无法连接到 Web 控制台
+
+```
+可能原因:
+- 配置下发端口未开放
+- 协议不匹配
+- 网络不通
+
+解决方法:
+1. 检查配置下发端口
+2. 验证协议设置
+3. 测试网络连通性
 ```
 
 ## 高级功能
