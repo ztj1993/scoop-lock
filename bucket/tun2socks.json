@@ -1,23 +1,23 @@
 {
-  "version": "2.5.0",
-  "homepage": "https://github.com/xjasonlyu/tun2socks",
-  "architecture": {
-    "64bit": {
-      "url": [
-        "https://github.com/xjasonlyu/tun2socks/releases/download/v2.5.0/tun2socks-windows-amd64.zip",
-        "https://www.wintun.net/builds/wintun-0.14.1.zip"
-      ],
-      "extract_dir": [
-        "",
-        "wintun/bin/amd64"
-      ],
-      "bin": [
-        "tun2socks-windows-amd64.exe",
-        [
-          "tun2socks-windows-amd64.exe",
-          "tun2socks"
-        ]
-      ]
+    "version": "2.5.0",
+    "homepage": "https://github.com/xjasonlyu/tun2socks",
+    "architecture": {
+        "64bit": {
+            "url": [
+                "https://github.com/xjasonlyu/tun2socks/releases/download/v2.5.0/tun2socks-windows-amd64.zip",
+                "https://www.wintun.net/builds/wintun-0.14.1.zip"
+            ],
+            "extract_dir": [
+                "",
+                "wintun/bin/amd64"
+            ],
+            "bin": [
+                "tun2socks-windows-amd64.exe",
+                [
+                    "tun2socks-windows-amd64.exe",
+                    "tun2socks"
+                ]
+            ]
+        }
     }
-  }
 }
