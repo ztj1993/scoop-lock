@@ -1,0 +1,52 @@
+﻿{
+    "version": "2.19.0.0",
+    "description": "Simplified Chinese language pack for TortoiseGit.",
+    "homepage": "https://tortoisegit.org/",
+    "license": {
+        "identifier": "GPL-2.0-or-later",
+        "url": "https://gitlab.com/tortoisegit/tortoisegit/-/blob/master/LICENSE"
+    },
+    "depends": "tortoisegit",
+    "architecture": {
+        "64bit": {
+            "url": "https://download.tortoisegit.org/tgit/2.19.0.0/TortoiseGit-LanguagePack-2.19.0.0-64bit-zh_CN.msi#/dl._msi",
+            "hash": "e1f9581eadd6af9b57f181f81322c78107b9dc89ff7cfc832707da2995da5d3e"
+        },
+        "32bit": {
+            "url": "https://download.tortoisegit.org/tgit/2.19.0.0/TortoiseGit-LanguagePack-2.19.0.0-32bit-zh_CN.msi#/dl._msi",
+            "hash": "f31b2bd3e7c2a44cebe2885be60ddff83f22a40c6a31e24e789dc489cf172dde"
+        }
+    },
+    "pre_install": "if (!(is_admin)) { error \"Admin rights required to install TortoiseGit LanguagePack\"; break }",
+    "installer": {
+        "script": [
+            "$succ = Invoke-ExternalCommand msiexec -ArgumentList @('/i', \"$dir\\dl._msi\", '/passive', '/quiet', '/log', \"$dir\\install.log\")",
+            "if (-not $succ) {",
+            "    error \"Failed ($succ) to run `\"$dir\\dl._msi`\".`nLog file:`n  $(friendly_path `\"$dir\\install.log`\")\"",
+            "    break",
+            "}"
+        ]
+    },
+    "post_install": "New-ItemProperty -Path 'HKCU:\\SOFTWARE\\TortoiseGit' -Name 'LanguageID' -PropertyType DWord -Value 2052 -Force | Out-Null",
+    "pre_uninstall": "if (!(is_admin)) { error \"Admin rights required to uninstall TortoiseGit LanguagePack\"; break }",
+    "uninstaller": {
+        "script": [
+            "Invoke-ExternalCommand msiexec -ArgumentList @('/uninstall', \"$dir\\dl._msi\", '/qn', '/log', \"$dir\\uninstall.log\")",
+            "Remove-ItemProperty -Path 'HKCU:\\SOFTWARE\\TortoiseGit' -Name 'LanguageID' -ErrorAction SilentlyContinue"
+        ]
+    },
+    "checkver": {
+        "url": "https://tortoisegit.org/download/",
+        "regex": "TortoiseGit-LanguagePack-([\\d.]+)-64bit-zh_CN\\.msi"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://download.tortoisegit.org/tgit/$version/TortoiseGit-LanguagePack-$version-64bit-zh_CN.msi#/dl._msi"
+            },
+            "32bit": {
+                "url": "https://download.tortoisegit.org/tgit/$version/TortoiseGit-LanguagePack-$version-32bit-zh_CN.msi#/dl._msi"
+            }
+        }
+    }
+}
