@@ -1,5 +1,5 @@
 {
-    "version": "2.55.0.2",
+    "version": "2.55.0.4",
     "description": "A free and open source distributed version control system.",
     "homepage": "https://gitforwindows.org",
     "license": {
@@ -18,12 +18,12 @@
     ],
     "architecture": {
         "64bit": {
-            "url": "https://github.com/git-for-windows/git/releases/download/v2.55.0.windows.2/PortableGit-2.55.0.2-64-bit.7z.exe#/dl.7z",
-            "hash": "b20d42da3afa228e9fa6174480de820282667e799440d655e308f700dfa0d0df"
+            "url": "https://github.com/git-for-windows/git/releases/download/v2.55.0.windows.4/PortableGit-2.55.0.4-64-bit.7z.exe#/dl.7z",
+            "hash": "016e84230a3767f0c6b3788e79ba0c58a17377086801719d46700fca4f7b36b5"
         },
         "arm64": {
-            "url": "https://github.com/git-for-windows/git/releases/download/v2.55.0.windows.2/PortableGit-2.55.0.2-arm64.7z.exe#/dl.7z",
-            "hash": "65b913a56a62d7a91fc11a2eecb08422aaa34332d3b2ea39457d2eda02c2f99c"
+            "url": "https://github.com/git-for-windows/git/releases/download/v2.55.0.windows.4/PortableGit-2.55.0.4-arm64.7z.exe#/dl.7z",
+            "hash": "d69d0c6a3c5445553565ef74f1d9e22a9869f57c246111db347dd96c252b4da5"
         }
     },
     "pre_install": [
