@@ -219,6 +219,7 @@ scoop install main/archive/<软件名>
 | 软件 | 描述 |
 | --- | --- |
 | navicat16 | 数据库管理工具 |
+| navicat17 | 数据库管理工具 |
 
 ### 虚拟化工具
 

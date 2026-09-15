@@ -1,0 +1,15 @@
+{
+    "version": "17",
+    "homepage": "https://www.navicat.com.cn/products/navicat-premium",
+    "architecture": {
+        "64bit": {
+            "url": "https://dn.navicat.com/download/navicat17_premium_cs_x64.exe#/navicat17.exe"
+        }
+    },
+    "installer": {
+        "script": "Invoke-ExternalCommand msiexec -ArgumentList @('/i', \"$dir\\navicat17.exe\", ' /SILENT') -RunAs | Out-Null"
+    },
+    "uninstaller": {
+        "script": "Invoke-ExternalCommand msiexec -ArgumentList @('/x', \"$dir\\navicat17.exe\", ' /SILENT') -RunAs | Out-Null"
+    }
+}
