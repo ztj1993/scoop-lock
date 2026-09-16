@@ -154,10 +154,10 @@ if ($BucketName) {
 }
 
 Write-Host "`nUsage:" -ForegroundColor Cyan
-Write-Host "  .\cn-proxy-git.ps1 -List                    # List all git remotes"
-Write-Host "  .\cn-proxy-git.ps1 <bucket>                  # Update specified bucket"
-Write-Host "  .\cn-proxy-git.ps1 -Scoop                    # Update scoop itself"
-Write-Host "  .\cn-proxy-git.ps1 -All                      # Update all buckets"
-Write-Host "  .\cn-proxy-git.ps1 <bucket> <prefix>         # Use custom prefix"
-Write-Host "  .\cn-proxy-git.ps1 <bucket> -Remove          # Remove prefix"
-Write-Host "  .\cn-proxy-git.ps1 <bucket> -DryRun          # Preview changes"
+Write-Host "  .\bin\cn-proxy-git.ps1 -List                    # List all git remotes"
+Write-Host "  .\bin\cn-proxy-git.ps1 <bucket>                  # Update specified bucket"
+Write-Host "  .\bin\cn-proxy-git.ps1 -Scoop                    # Update scoop itself"
+Write-Host "  .\bin\cn-proxy-git.ps1 -All                      # Update all buckets"
+Write-Host "  .\bin\cn-proxy-git.ps1 <bucket> <prefix>         # Use custom prefix"
+Write-Host "  .\bin\cn-proxy-git.ps1 <bucket> -Remove          # Remove prefix"
+Write-Host "  .\bin\cn-proxy-git.ps1 <bucket> -DryRun          # Preview changes"

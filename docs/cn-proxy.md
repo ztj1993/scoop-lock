@@ -1,9 +1,9 @@
 # 加速前缀脚本
 
-本项目提供两个脚本，用于为 GitHub 资源添加加速前缀，解决国内网络下载缓慢的问题。
+本项目提供两个脚本（位于 `bin/` 目录下），用于为 GitHub 资源添加加速前缀，解决国内网络下载缓慢的问题。
 
-- `cn-proxy-url.ps1` - 修改软件包 manifest 中的下载 URL
-- `cn-proxy-git.ps1` - 修改 bucket 和 scoop 的 git 远端地址
+- `bin/cn-proxy-url.ps1` - 修改软件包 manifest 中的下载 URL
+- `bin/cn-proxy-git.ps1` - 修改 bucket 和 scoop 的 git 远端地址
 
 ---
 
@@ -15,16 +15,16 @@
 
 ```powershell
 # 使用默认前缀 https://ghfast.top/
-.\cn-proxy-url.ps1 <软件名称>
+.\bin\cn-proxy-url.ps1 <软件名称>
 
 # 使用自定义前缀
-.\cn-proxy-url.ps1 <软件名称> <前缀地址>
+.\bin\cn-proxy-url.ps1 <软件名称> <前缀地址>
 
 # 仅显示变更内容，不实际修改文件
-.\cn-proxy-url.ps1 <软件名称> -DryRun
+.\bin\cn-proxy-url.ps1 <软件名称> -DryRun
 
 # 移除已添加的前缀，恢复原始 URL
-.\cn-proxy-url.ps1 <软件名称> -Remove
+.\bin\cn-proxy-url.ps1 <软件名称> -Remove
 ```
 
 ### 参数说明
@@ -40,17 +40,17 @@
 
 ```powershell
 # 为 clash-verge-rev 添加加速前缀
-.\cn-proxy-url.ps1 clash-verge-rev
+.\bin\cn-proxy-url.ps1 clash-verge-rev
 
 # 使用自定义前缀
-.\cn-proxy-url.ps1 git "https://mirror.ghproxy.com/"
+.\bin\cn-proxy-url.ps1 git "https://mirror.ghproxy.com/"
 
 # 先预览再执行
-.\cn-proxy-url.ps1 7zip -DryRun
-.\cn-proxy-url.ps1 7zip
+.\bin\cn-proxy-url.ps1 7zip -DryRun
+.\bin\cn-proxy-url.ps1 7zip
 
 # 移除已添加的前缀
-.\cn-proxy-url.ps1 clash-verge-rev -Remove
+.\bin\cn-proxy-url.ps1 clash-verge-rev -Remove
 ```
 
 ### 支持的 URL 字段
@@ -80,25 +80,25 @@
 
 ```powershell
 # 列出所有 bucket 和 scoop 的 git remote
-.\cn-proxy-git.ps1 -List
+.\bin\cn-proxy-git.ps1 -List
 
 # 修改指定 bucket 的 remote
-.\cn-proxy-git.ps1 <bucket名称>
+.\bin\cn-proxy-git.ps1 <bucket名称>
 
 # 修改 scoop 本身的 remote
-.\cn-proxy-git.ps1 -Scoop
+.\bin\cn-proxy-git.ps1 -Scoop
 
 # 批量修改所有 bucket
-.\cn-proxy-git.ps1 -All
+.\bin\cn-proxy-git.ps1 -All
 
 # 使用自定义前缀
-.\cn-proxy-git.ps1 <bucket名称> <前缀地址>
+.\bin\cn-proxy-git.ps1 <bucket名称> <前缀地址>
 
 # 仅显示变更内容，不实际修改
-.\cn-proxy-git.ps1 <bucket名称> -DryRun
+.\bin\cn-proxy-git.ps1 <bucket名称> -DryRun
 
 # 移除已添加的前缀
-.\cn-proxy-git.ps1 <bucket名称> -Remove
+.\bin\cn-proxy-git.ps1 <bucket名称> -Remove
 ```
 
 ### 参数说明
@@ -117,26 +117,26 @@
 
 ```powershell
 # 查看当前所有 git remote
-.\cn-proxy-git.ps1 -List
+.\bin\cn-proxy-git.ps1 -List
 
 # 修改 main bucket 的 remote
-.\cn-proxy-git.ps1 main
+.\bin\cn-proxy-git.ps1 main
 
 # 修改 scoop 本身的 remote
-.\cn-proxy-git.ps1 -Scoop
+.\bin\cn-proxy-git.ps1 -Scoop
 
 # 批量修改所有 bucket
-.\cn-proxy-git.ps1 -All
+.\bin\cn-proxy-git.ps1 -All
 
 # 先预览再执行
-.\cn-proxy-git.ps1 -All -DryRun
-.\cn-proxy-git.ps1 -All
+.\bin\cn-proxy-git.ps1 -All -DryRun
+.\bin\cn-proxy-git.ps1 -All
 
 # 使用自定义前缀
-.\cn-proxy-git.ps1 main "https://mirror.ghproxy.com/"
+.\bin\cn-proxy-git.ps1 main "https://mirror.ghproxy.com/"
 
 # 移除已添加的前缀
-.\cn-proxy-git.ps1 main -Remove
+.\bin\cn-proxy-git.ps1 main -Remove
 ```
 
 ---

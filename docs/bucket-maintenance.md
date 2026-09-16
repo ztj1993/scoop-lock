@@ -25,6 +25,8 @@
 | `bin/missing-checkver.ps1` | 扫描并列出当前 `bucket/` 下缺少 `checkver` 自动更新配置的软件 | Scoop 核心 `missing-checkver.ps1` |
 | `bin/formatjson.ps1` | 统一格式化 Manifest JSON 文件（规范缩进、字段顺序） | Scoop 核心 `formatjson.ps1` |
 | `bin/update-gitignore.ps1` | 同步 `archive/` 与 `deprecated/` 下的软件至根目录 `.gitignore` | 本地独立脚本 |
+| `bin/cn-proxy-url.ps1` | 修改软件包 Manifest 中的下载 URL，添加/移除国内加速前缀 | 本地独立脚本 |
+| `bin/cn-proxy-git.ps1` | 修改 bucket 与 scoop 的 Git 远端地址，添加/移除国内加速前缀 | 本地独立脚本 |
 
 ---
 
@@ -163,7 +165,7 @@ Scoop 官方对 Manifest JSON 文件的缩进、字段次序（如 `version`、`
 graph TD
     A[选择需要更新的软件] --> B[运行 checkver.ps1 -u 更新版本]
     B --> C{是否需要国内加速?}
-    C -->|是| D[运行 cn-proxy-url.ps1 添加加速前缀]
+    C -->|是| D[运行 bin/cn-proxy-url.ps1 添加加速前缀]
     C -->|否| E[运行 formatjson.ps1 格式化]
     D --> E
     E --> F[本地测试安装验证 scoop install]
@@ -179,7 +181,7 @@ graph TD
 2. **（可选）添加国内加速代理前缀**：
    若该软件在国内网络环境下下载缓慢，可添加代理前缀（详见 [加速前缀脚本](cn-proxy.md)）：
    ```powershell
-   .\cn-proxy-url.ps1 <软件名>
+   .\bin\cn-proxy-url.ps1 <软件名>
    ```
 3. **格式化 Manifest**：
    ```powershell

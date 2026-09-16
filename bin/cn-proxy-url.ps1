@@ -12,7 +12,7 @@ param(
 
 $ErrorActionPreference = "Stop"
 
-$bucketRoot = $PSScriptRoot
+$bucketRoot = (Resolve-Path "$PSScriptRoot\..").Path
 
 $manifestPath = @(
     "$bucketRoot\bucket\$AppName.json",
