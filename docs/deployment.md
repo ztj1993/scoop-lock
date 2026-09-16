@@ -44,7 +44,7 @@ irm https://raw.githubusercontent.com/ztj1993/scoop-lock/master/install.ps1 | ie
 
 | 变量 | 说明 | 默认值 |
 | :--- | :--- | :--- |
-| `SCOOP_PACKAGE_REPO` | Scoop 安装包下载地址 | `https://ghfast.top/.../Scoop/archive/master.zip` |
+| `SCOOP_PACKAGE_REPO` | Scoop 安装包下载地址 | `https://github.com/ScoopInstaller/Scoop/archive/master.zip` |
 | `SCOOP_APP_DIR` | Scoop 安装目录 | `%USERPROFILE%\scoop\apps\scoop\current` |
 | `FORCE_SCOOP` | 强制重新安装 Scoop | 空值表示不强制 |
 
@@ -52,20 +52,20 @@ irm https://raw.githubusercontent.com/ztj1993/scoop-lock/master/install.ps1 | ie
 
 | 变量 | 说明 | 默认值 |
 | :--- | :--- | :--- |
-| `SCOOP_MAIN_BUCKET_REPO` | 本 bucket 下载地址 | `https://ghfast.top/.../scoop-lock/archive/master.zip` |
+| `SCOOP_MAIN_BUCKET_REPO` | 本 bucket 下载地址 | `https://github.com/ztj1993/scoop-lock/archive/master.zip` |
 | `SCOOP_MAIN_BUCKET_DIR` | 本 bucket 安装目录 | `%USERPROFILE%\scoop\buckets\main` |
 | `FORCE_MAIN_BUCKET` | 强制重新安装本 bucket | 空值表示不强制 |
 
 ## 自定义安装示例
 
-### 使用 GitHub 原始地址
+### 使用加速代理地址
 
-默认使用 `ghfast.top` 作为 GitHub 代理，如需使用原始 GitHub 地址：
+默认直接从 GitHub 官方下载。如国内网络环境访问较慢或不稳定，可使用代理加速地址（如 `ghfast.top`）：
 
 ```powershell
-$env:SCOOP_PACKAGE_REPO = "https://github.com/ScoopInstaller/Scoop/archive/master.zip"
-$env:SCOOP_MAIN_BUCKET_REPO = "https://github.com/ztj1993/scoop-lock/archive/master.zip"
-irm https://raw.githubusercontent.com/ztj1993/scoop-lock/master/install.ps1 | iex
+$env:SCOOP_PACKAGE_REPO = "https://ghfast.top/https://github.com/ScoopInstaller/Scoop/archive/master.zip"
+$env:SCOOP_MAIN_BUCKET_REPO = "https://ghfast.top/https://github.com/ztj1993/scoop-lock/archive/master.zip"
+irm https://ghfast.top/https://raw.githubusercontent.com/ztj1993/scoop-lock/master/install.ps1 | iex
 ```
 
 ### 自定义安装目录

@@ -39,6 +39,14 @@ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 irm https://raw.githubusercontent.com/ztj1993/scoop-lock/master/install.ps1 | iex
 ```
 
+如国内网络访问 GitHub 不稳定，可通过加速代理（如 `ghfast.top`）安装：
+
+```powershell
+$env:SCOOP_PACKAGE_REPO = "https://ghfast.top/https://github.com/ScoopInstaller/Scoop/archive/master.zip"
+$env:SCOOP_MAIN_BUCKET_REPO = "https://ghfast.top/https://github.com/ztj1993/scoop-lock/archive/master.zip"
+irm https://ghfast.top/https://raw.githubusercontent.com/ztj1993/scoop-lock/master/install.ps1 | iex
+```
+
 如需强制重新安装 Scoop 或重新覆盖本 bucket：
 
 ```powershell

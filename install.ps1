@@ -9,7 +9,7 @@ function Install-Scoop {
     $repo = if ($env:SCOOP_PACKAGE_REPO) {
         $env:SCOOP_PACKAGE_REPO
     } else {
-        "https://ghfast.top/https://github.com/ScoopInstaller/Scoop/archive/master.zip"
+        "https://github.com/ScoopInstaller/Scoop/archive/master.zip"
     }
     $appDir = if ($env:SCOOP_APP_DIR) {
         $env:SCOOP_APP_DIR
@@ -38,7 +38,7 @@ function Install-ScoopMainBucket {
     $repo = if ($env:SCOOP_MAIN_BUCKET_REPO) {
         $env:SCOOP_MAIN_BUCKET_REPO
     } else {
-        "https://ghfast.top/https://github.com/ztj1993/scoop-lock/archive/master.zip"
+        "https://github.com/ztj1993/scoop-lock/archive/master.zip"
     }
     $bucketDir = if ($env:SCOOP_MAIN_BUCKET_DIR) {
         $env:SCOOP_MAIN_BUCKET_DIR
