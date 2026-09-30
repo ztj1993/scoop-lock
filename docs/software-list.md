@@ -35,6 +35,7 @@
 | easytier-gui | 去中心化网格 VPN，GUI 版 |
 | tun2socks | 将网络流量通过 SOCKS 代理转发 |
 | antigravity-proxy | 专为 Antigravity 打造的免 TUN 强制代理注入工具 (version.dll 劫持) |
+| gfw-pac | 基于 Radix Tree CNIP 匹配的轻量高性能 PAC 文件与 Windows PAC 自动代理管理工具 |
 
 ## 数据库 / 消息队列
 

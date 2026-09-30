@@ -1,0 +1,46 @@
+{
+    "version": "20260924.1",
+    "description": "High-performance PAC (Proxy Auto-Config) file based on Radix Tree CNIP matching, with automated Windows PAC proxy configuration.",
+    "homepage": "https://github.com/zhiyi7/gfw-pac",
+    "license": {
+        "identifier": "GPL-3.0-only",
+        "url": "https://github.com/zhiyi7/gfw-pac/blob/master/LICENSE.txt"
+    },
+    "notes": [
+        "Run 'gfw-pac enable' to configure and turn on Windows PAC proxy (via file://).",
+        "Run 'gfw-pac disable' to turn off Windows PAC proxy and restore direct connection.",
+        "Run 'gfw-pac status' to check current Windows PAC status and proxy connectivity.",
+        "Run 'gfw-pac config' to view or edit proxy settings in gfw.pac."
+    ],
+    "suggest": {
+        "python": "python"
+    },
+    "url": "https://github.com/zhiyi7/gfw-pac/archive/refs/tags/v20260924.1.zip",
+    "hash": "5726cdd11ccf855fcb56532d77c5065d460c0f6ef61f609804888e8e0911eaf3",
+    "extract_dir": "gfw-pac-20260924.1",
+    "post_install": [
+        "$bucket_dir = Find-BucketDirectory -Root -Name $bucket",
+        "if (Test-Path \"$bucket_dir\\scripts\\gfw-pac\") {",
+        "    Copy-Item \"$bucket_dir\\scripts\\gfw-pac\\*\" \"$dir\" -Force",
+        "}"
+    ],
+    "bin": [
+        [
+            "gfw-pac.cmd",
+            "gfw-pac"
+        ]
+    ],
+    "persist": [
+        "gfw.pac",
+        "direct-domains.txt",
+        "proxy-domains.txt"
+    ],
+    "checkver": {
+        "url": "https://api.github.com/repos/zhiyi7/gfw-pac/tags",
+        "regex": "v(?<version>[\\d.]+)"
+    },
+    "autoupdate": {
+        "url": "https://github.com/zhiyi7/gfw-pac/archive/refs/tags/v$version.zip",
+        "extract_dir": "gfw-pac-$version"
+    }
+}
