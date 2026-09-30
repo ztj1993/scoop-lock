@@ -1,0 +1,71 @@
+{
+    "version": "2.4",
+    "description": "Transparent proxy injector for Antigravity, forcing SOCKS5/HTTP proxy without TUN mode on Windows.",
+    "homepage": "https://github.com/yuaotian/antigravity-proxy",
+    "license": {
+        "identifier": "BSD-2-Clause",
+        "url": "https://github.com/yuaotian/antigravity-proxy/blob/main/LICENSE.txt"
+    },
+    "notes": [
+        "Run 'antigravity-proxy enable' to deploy proxy injector to Antigravity.",
+        "Run 'antigravity-proxy disable' to remove proxy injector from Antigravity.",
+        "Run 'antigravity-proxy status' to check injection status and proxy connectivity.",
+        "Run 'antigravity-proxy config' to view or edit proxy configuration."
+    ],
+    "suggest": {
+        "antigravity": "antigravity",
+        "vcredist": "vcredist-aio"
+    },
+    "architecture": {
+        "64bit": {
+            "url": [
+                "https://github.com/yuaotian/antigravity-proxy/releases/download/v2.4/antigravity-proxy-v2.4-ide-win-x64.zip",
+                "https://github.com/yuaotian/antigravity-proxy/releases/download/v2.4/antigravity-proxy-v2.4-cli-win-x64.zip"
+            ],
+            "hash": [
+                "ee4aead95b677148c6ac4d8e46018b3b07e2b1e4249bb5232985628ee78d82e3",
+                "8647ab219c71f45c3199ac54e3a989921bece77df814a4885ab7a24dff001ce1"
+            ]
+        },
+        "32bit": {
+            "url": [
+                "https://github.com/yuaotian/antigravity-proxy/releases/download/v2.4/antigravity-proxy-v2.4-ide-win-x86.zip",
+                "https://github.com/yuaotian/antigravity-proxy/releases/download/v2.4/antigravity-proxy-v2.4-cli-win-x86.zip"
+            ],
+            "hash": [
+                "ca40f0be389552c9ab7ae49127cfded3dd96732ba1f2af884bb174f4f77d9a05",
+                "5ff00d1c8278da2c4bd070a318b35303994b21ad21e2fc364cb338b27d363934"
+            ]
+        }
+    },
+    "post_install": [
+        "$bucket_dir = Find-BucketDirectory -Root -Name $bucket",
+        "if (Test-Path \"$bucket_dir\\scripts\\antigravity-proxy\") {",
+        "    Copy-Item \"$bucket_dir\\scripts\\antigravity-proxy\\*\" \"$dir\" -Force",
+        "}"
+    ],
+    "bin": [
+        [
+            "antigravity-proxy.cmd",
+            "antigravity-proxy"
+        ]
+    ],
+    "persist": "config.json",
+    "checkver": "github",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": [
+                    "https://github.com/yuaotian/antigravity-proxy/releases/download/v$version/antigravity-proxy-v$version-ide-win-x64.zip",
+                    "https://github.com/yuaotian/antigravity-proxy/releases/download/v$version/antigravity-proxy-v$version-cli-win-x64.zip"
+                ]
+            },
+            "32bit": {
+                "url": [
+                    "https://github.com/yuaotian/antigravity-proxy/releases/download/v$version/antigravity-proxy-v$version-ide-win-x86.zip",
+                    "https://github.com/yuaotian/antigravity-proxy/releases/download/v$version/antigravity-proxy-v$version-cli-win-x86.zip"
+                ]
+            }
+        }
+    }
+}

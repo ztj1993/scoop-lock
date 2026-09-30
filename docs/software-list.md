@@ -34,6 +34,7 @@
 | easytier | 去中心化网格 VPN，CLI 版 |
 | easytier-gui | 去中心化网格 VPN，GUI 版 |
 | tun2socks | 将网络流量通过 SOCKS 代理转发 |
+| antigravity-proxy | 专为 Antigravity 打造的免 TUN 强制代理注入工具 (version.dll 劫持) |
 
 ## 数据库 / 消息队列
 
@@ -69,6 +70,7 @@
 | reqable | API 调试代理 |
 | sourcegit | 开源 Git GUI 客户端 |
 | cc-switch | Claude Code、Codex 和 Gemini CLI 的桌面一体化助手 |
+| antigravity | Google 开发的智能代理编排平台 (Agent Orchestration Platform) |
 
 ## 已弃用 / 旧版本
 
